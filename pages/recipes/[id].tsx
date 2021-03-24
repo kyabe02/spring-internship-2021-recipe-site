@@ -11,10 +11,12 @@ const RecipePage: FC<Props> = (props) => {
     const [recipe, setRecipe] = useState<Recipe | null>(null);
     useEffect(() => {
         (async() => {
-            const recipe = await getRecipe(Number(router.query.id));
-            setRecipe(recipe);
+            if(router.query.id !== undefined){
+                const recipe = await getRecipe(Number(router.query.id));
+                setRecipe(recipe);
+            }
         })(); 
-    }, []);
+    }, [router.query.id]);
 
     if(recipe === null) return <div>loading...</div>;
 
