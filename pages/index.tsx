@@ -9,8 +9,9 @@ const TopPage: FC = () => {
         (async() => {
             const recipes = await getRecipe();
             setRecipes(recipes);
-        })
+        })(); 
     }, []);
+    console.log(recipes);
 
     if (recipes === null) return <div>loading...</div>;
 

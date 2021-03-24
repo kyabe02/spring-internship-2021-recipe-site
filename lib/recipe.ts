@@ -36,12 +36,3 @@ export type Recipe = {
     // なお、関連レシピの算出アルゴリズムのできが悪いため関連性が低い可能性がある点に注意。
     related_recipes: number[];
   };
-
-
-export const getRecipe = (async() => {
-    const res = await fetch('https://internship-recipe-api.ckpd.co/recipes', {
-      headers: { 'X-Api-Key': 'remark-fish-magician' }
-    });
-    const recipes = await res.json();
-    console.log(recipes);
-  })();
