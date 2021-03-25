@@ -10,13 +10,33 @@ type Props = {
 
 export const RecipeBox: FC<Props> = (props) => {
     const RecipeImg = styled.img({
-        width: '200px'
+        width: '200px',
+        height: '100px',
+        margin: 'auto 0',
+        marginRight: '10px',
+        verticalAlign: 'middle',
+    })
+
+    const RecipeContainer = styled.div({
+        display: 'flex',
+        margin: '10px',
+        padding: '10px 0',
+        borderBottom: 'solid 2px gray',
+        width: '90%',
+    })
+
+    const RecipeDescription = styled.div({
+
     })
     return (
-        <div className='recipe-container'>
+        <RecipeContainer>
             <RecipeImg src={props.recipe.image_url} alt="" />
+            <RecipeDescription>
             <Link href={"./recipes/" + props.recipe.id}>{props.recipe.title}</Link>
             <br />
-        </div>
+            {props.recipe.description}
+            </RecipeDescription>
+
+        </RecipeContainer>
     );
 };

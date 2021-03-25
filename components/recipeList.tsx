@@ -10,7 +10,7 @@ export const RecipeList: FC<Props> = (props) => {
     return (
         <div className='recipe-list'>
             {props.recipes.map((recipe) => (
-            <RecipeBox recipe={recipe} />
+            <RecipeBox key={recipe.id} recipe={recipe} />
         ))}
         </div>
     );

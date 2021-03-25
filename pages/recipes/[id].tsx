@@ -1,7 +1,11 @@
+/** @jsxImportSource @emotion/react */
+import styled from '@emotion/styled'
 import { useRouter } from "next/router";
 import { FC, useState, useEffect } from "react";
 import { getRecipe } from "../../lib/getRecipe";
 import { Recipe } from "../../lib/recipe";
+import { Steps } from "../../components/steps";
+import { Ings } from "../../components/ings";
 
 type Props = {
 }
@@ -17,15 +21,26 @@ const RecipePage: FC<Props> = (props) => {
             }
         })(); 
     }, [router.query.id]);
+    
+    const RecipeContainer = styled.div({
+        margin: '10px',
+    })
+    const RecipeImgContainer = styled.div({
+        textAlign: 'center',
+    })
 
     if(recipe === null) return <div>loading...</div>;
 
     return(
-        <div>
-            <h1>Recipe Page! ID: {router.query.id}</h1>
+        <RecipeContainer>
             <h2>{recipe.title}</h2>
-            <img src={recipe.image_url} alt="" width="300"></img>
-        </div>
+            <RecipeImgContainer> <img src={recipe.image_url} alt="" width='300' /></RecipeImgContainer>
+            <br />
+            <h3>材料</h3>
+            <Ings ings={recipe.ingredients} />
+            <h3>手順</h3>
+            <Steps steps={recipe.steps} />
+        </RecipeContainer>
     );
 };
 

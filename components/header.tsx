@@ -6,14 +6,31 @@ import { FC } from "react";
 
 export const Header: FC = () => {
     const Header = styled.div({
-        backgroundColor: 'blue',
+        backgroundColor: 'lightgray',
         height: '50px',
         position: 'fixed',
         width: '100%',
+        display: 'flex',
+        justifyContent: 'space-between',
+        transform: 'translate(-8px, -8px)',
+    });
+
+    const Logo = styled.div({
+        float: 'left',
+        margin: 'auto 30px',
+        fontSize: 'large',
+    });
+
+    const Search = styled.input({
+        float: 'right',
+        width: '200px',
+        height: '35px',
+        margin: 'auto 20px auto 0',
     })
     return (
         <Header>
-            クックックパッド
+            <Logo>クックックパッド</Logo>
+            <Search placeholder='検索はこちら'　/>
         </Header>
     );
 };

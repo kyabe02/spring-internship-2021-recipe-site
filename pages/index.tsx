@@ -24,7 +24,7 @@ const TopPage: FC = () => {
     });    
 
     const Body = styled.div({
-        'padding-top': '50px',
+        paddingTop: '50px',
     });
 
     useEffect(() => {
