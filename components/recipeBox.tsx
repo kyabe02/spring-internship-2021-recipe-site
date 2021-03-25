@@ -15,6 +15,7 @@ export const RecipeBox: FC<Props> = (props) => {
         margin: 'auto 0',
         marginRight: '10px',
         verticalAlign: 'middle',
+        maxWidth: '40%',
     })
 
     const RecipeContainer = styled.div({

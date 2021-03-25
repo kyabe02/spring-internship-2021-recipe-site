@@ -7,6 +7,9 @@ import { Recipe } from "../../lib/recipe";
 import { Steps } from "../../components/steps";
 import { Ings } from "../../components/ings";
 import { Header } from "../../components/header";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import { css, jsx } from '@emotion/react'
 
 type Props = {
 }
@@ -29,11 +32,22 @@ const RecipePage: FC<Props> = (props) => {
     })
     const RecipeImgContainer = styled.div({
         textAlign: 'center',
+        maxWidth: '700px',
+        margin: '0 auto',
+        minHeight: '300px',
+        border: 'solid 1px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
     })
 
     const ResipeDetailBox = styled.div({
 
     })
+
+    const iconStyle: React.CSSProperties = { padding: 10, fontSize: 50 };
+
+    console.log(recipe);
     if(recipe === null) return <div>loading...</div>;
 
     return(
@@ -41,7 +55,10 @@ const RecipePage: FC<Props> = (props) => {
             <Header />
             <RecipeContainer>
             <h2>{recipe.title}</h2>
-                <RecipeImgContainer> <img src={recipe.image_url} alt="" width='80%' /></RecipeImgContainer>
+                <RecipeImgContainer> 
+                    {recipe.image_url 
+                ? <img src={recipe.image_url} alt="" width='80%' /> 
+                : <FontAwesomeIcon style={iconStyle} icon={faEyeSlash} />}</RecipeImgContainer>
                 <ResipeDetailBox>
                     {recipe.author.user_name}{recipe.published_at}
                 </ResipeDetailBox>
