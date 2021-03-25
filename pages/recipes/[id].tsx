@@ -25,6 +25,10 @@ const RecipePage: FC<Props> = (props) => {
             }
         })(); 
     }, [router.query.id]);
+
+    function dateFormat(date: string) {
+        
+    }
     
     const RecipeContainer = styled.div({
         margin: '10px',
@@ -34,15 +38,19 @@ const RecipePage: FC<Props> = (props) => {
         textAlign: 'center',
         maxWidth: '700px',
         margin: '0 auto',
-        minHeight: '300px',
+        minHeight: '150px',
         border: 'solid 1px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        borderRadius: '10px',
+        overflow: 'hidden',
     })
 
     const ResipeDetailBox = styled.div({
-
+        margin: '10px auto',
+        fontSize: 'small',
+        color: '#555',
     })
 
     const iconStyle: React.CSSProperties = { padding: 10, fontSize: 50 };
@@ -57,10 +65,11 @@ const RecipePage: FC<Props> = (props) => {
             <h2>{recipe.title}</h2>
                 <RecipeImgContainer> 
                     {recipe.image_url 
-                ? <img src={recipe.image_url} alt="" width='80%' /> 
+                ? <img src={recipe.image_url} alt="" width='100%' /> 
                 : <FontAwesomeIcon style={iconStyle} icon={faEyeSlash} />}</RecipeImgContainer>
                 <ResipeDetailBox>
-                    {recipe.author.user_name}{recipe.published_at}
+                    <p>投稿者: {recipe.author.user_name}</p>
+                    <p>投稿日時:{recipe.published_at}</p>
                 </ResipeDetailBox>
 
                 <h3>材料</h3>

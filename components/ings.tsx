@@ -10,9 +10,21 @@ type Props = {
 }
 
 export const Ings: FC<Props> = (props) => {
-    const Ing = styled.div({
-        borderBottom: 'dashed 1px',
+    const Ing = styled.tr({
+        ':nth-of-type(odd)': {
+            backgroundColor: '#eee',
+        }
     })
+
+    const IngTable = styled.table({
+        borderSpacing: 0,
+        width: '100%',
+    })
+
+    const Td = styled.td({
+        padding: '10px',
+    })
+
     const Bold = styled.span({
         fontWeight: 'bold',
     })
@@ -20,9 +32,18 @@ export const Ings: FC<Props> = (props) => {
     console.log(props.ings);
     return (
         <div>
-            {props.ings.map((ing, i) => (
-                <Ing key={i}>{ing.quantity ? `${ing.name}:${ing.quantity}` : <Bold>{ing.name}</Bold>}</Ing>
-            ))}
+            <IngTable>
+                <tbody>
+                    {props.ings.map((ing, i) => (
+                        ing.name &&
+                        <Ing key={i}>
+                            {ing.quantity ? <Td align='left'>{ing.name}</Td> : <Bold><Td align='left'>{ing.name}</Td></Bold>}
+                            {ing.quantity && <Td align='right'>{ing.quantity} </Td>}
+                        </Ing>
+                        
+                    ))}
+                </tbody>
+            </IngTable>
         </div>
     );
 };
