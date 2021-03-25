@@ -1,10 +1,19 @@
+/** @jsxImportSource @emotion/react */
+import styled from '@emotion/styled'
 import { FC } from "react";
 
+
+
 export const Header: FC = () => {
+    const Header = styled.div({
+        backgroundColor: 'blue',
+        height: '50px',
+        position: 'fixed',
+        width: '100%',
+    })
     return (
-        <div className='header'>
-            <style jsx>{`font-size: 100px;`}</style>
+        <Header>
             クックックパッド
-        </div>
+        </Header>
     );
 };
