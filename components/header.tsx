@@ -12,7 +12,7 @@ export const Header: FC = () => {
         width: '100%',
         display: 'flex',
         justifyContent: 'space-between',
-        transform: 'translate(-8px, -8px)',
+        transform: 'translate(-8px, -10px)',
     });
 
     const Logo = styled.div({
