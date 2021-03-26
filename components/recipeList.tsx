@@ -3,7 +3,7 @@ import { Recipe } from "../lib/recipe";
 import { RecipeBox } from "./recipeBox";
 
 type Props = {
-    recipes: Recipe[];
+    recipes?: Recipe[];
 }
 
 export const RecipeList: FC<Props> = (props) => {

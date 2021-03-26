@@ -1,18 +1,22 @@
 /** @jsxImportSource @emotion/react */
 import { FC, useEffect, useState } from "react";
-import { getRecipes, Recipes, getRecipesByWord } from "../lib/getRecipe";
+import { getRecipesByWord, getRecipes, Recipes } from "../lib/getRecipe";
 import { RecipeList } from "../components/recipeList";
 import { Header } from "../components/header";
 import Link from "next/link";
 import { css, jsx } from '@emotion/react'
 import styled from '@emotion/styled'
+import { useRouter } from "next/router";
 
+type Props = {
+}
 
-const TopPage: FC = () => {
+const SearchPage: FC<Props> = (props) => {
     const [recipes, setRecipes] = useState<Recipes | null>(null);
     const [page, setPage] = useState<number>(1);
-    const [keyword, setKeyword] = useState<string | null>(null);
+    const [keyword, setKeyword] = useState<string | null>(undefined);
 
+    const router = useRouter();
 
     const hoverStyle = css({
         padding: '32px',
@@ -30,19 +34,14 @@ const TopPage: FC = () => {
 
     useEffect(() => {
         (async() => {
-            const recipes = await getRecipes(page);
-            setRecipes(recipes);
-        })(); 
-    }, [page]);
-
-    if(keyword !== null) {
-        useEffect(() => {
-            (async() => {
-                const recipes = await getRecipesByWord(keyword, page);
+            if(router.query.q !== undefined){
+                console.log(keyword);
+                console.log(router.query.q);
+                const recipes = await getRecipesByWord(router.query.q ,page);
                 setRecipes(recipes);
-            })(); 
-        }, [page]);
-    }
+            }
+        })(); 
+    }, [page, router.query.q]);
 
     function handlePrev() {
         setPage(page - 1);
@@ -56,7 +55,7 @@ const TopPage: FC = () => {
 
 
     if (recipes === null) return <div>loading...</div>;
-
+    console.log(recipes);
   return(
     <div>
         <Header />
@@ -65,10 +64,8 @@ const TopPage: FC = () => {
             <div css={hoverStyle}>ホバーで色変更</div>
             
         </Body>
-        {recipes.links.prev && <button onClick={handlePrev}>prev</button>}
-        {recipes.links.next && <button onClick={handleNext}>next</button>}
     </div>
   );
 };
 
-export default TopPage;
+export default SearchPage;

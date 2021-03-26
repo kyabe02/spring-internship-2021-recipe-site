@@ -19,6 +19,8 @@ export const Ings: FC<Props> = (props) => {
     const IngTable = styled.table({
         borderSpacing: 0,
         width: '100%',
+        border: 'dotted 3px gray',
+        borderWidth: '4px 0',
     })
 
     const Td = styled.td({

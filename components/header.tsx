@@ -3,9 +3,15 @@ import styled from '@emotion/styled'
 import { FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 
 export const Header: FC = () => {
+
+    function handleSaerch() {
+        <Link href={"./search/"}></Link>
+    }
+
     const Header = styled.div({
         backgroundColor: 'lightgray',
         height: '50px',
@@ -22,7 +28,7 @@ export const Header: FC = () => {
         fontSize: 'large',
     });
 
-    const SearchContainer = styled.div({
+    const SearchContainer = styled.form({
         boxSizing: 'border-box',
         position: 'relative',
         border: '1px solid #999',
@@ -57,12 +63,13 @@ export const Header: FC = () => {
 
       })
       
+    
 
     return (
         <Header>
             <Logo>クックックパッド</Logo>
-            <SearchContainer>
-            <Search placeholder='検索はこちら'　/>
+            <SearchContainer method='get' action='/search'>
+            <Search placeholder='検索はこちら' name='q'/>
             <Submit type='submit'><FontAwesomeIcon icon={faSearch} /></Submit>
             </SearchContainer>
         </Header>

@@ -34,3 +34,12 @@ export async function getRecipe(id :Number): Promise<Recipe>{
     console.log(response);
     return recipes;
 }
+
+export async function getRecipesByWord(word :string | string[], pages: number): Promise<Recipes>{
+    const response = await fetch(`https://internship-recipe-api.ckpd.co/search?keyword=${encodeURI(word)}&page=${pages}`, {
+        headers: { 'X-Api-Key': process.env.NEXT_PUBLIC_API_KEY }
+      });
+    const recipes = await response.json();
+    console.log(response);
+    return recipes;
+}

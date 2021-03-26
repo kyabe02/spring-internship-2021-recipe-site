@@ -53,6 +53,10 @@ const RecipePage: FC<Props> = (props) => {
         color: '#555',
     })
 
+    const ResipeDescription = styled.div({
+
+    })
+
     const iconStyle: React.CSSProperties = { padding: 10, fontSize: 50 };
 
     console.log(recipe);
@@ -71,6 +75,9 @@ const RecipePage: FC<Props> = (props) => {
                     <p>投稿者: {recipe.author.user_name}</p>
                     <p>投稿日時:{recipe.published_at}</p>
                 </ResipeDetailBox>
+                <ResipeDescription>
+                    {recipe.description}
+                </ResipeDescription>
 
                 <h3>材料</h3>
                 <Ings ings={recipe.ingredients} />

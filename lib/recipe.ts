@@ -36,3 +36,35 @@ export type Recipe = {
     // なお、関連レシピの算出アルゴリズムのできが悪いため関連性が低い可能性がある点に注意。
     related_recipes: number[];
   };
+
+export const RecipeDummy ={
+    "id": null,
+"title": "----------",
+"description": "----------------------------------------",
+"image_url": null,
+"author": {
+    "user_name": "----------"
+},
+"published_at": "----------",
+"steps": [
+    "----------",
+    "----------",
+    "----------",
+],
+"ingredients": [
+    {
+        "name": "----------",
+        "quantity": "----"
+    },
+    {
+        "name": "----------",
+        "quantity": "----"
+    },
+    {
+        "name": "----------",
+        "quantity": "----"
+    },
+],
+"related_recipes": [
+]
+}
