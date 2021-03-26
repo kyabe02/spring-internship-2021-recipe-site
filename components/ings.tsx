@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { FC } from "react";
 
 type Props = {
-    ings: {
+    ings?: {
         name: string,
         quantity: string,
     }[]
@@ -31,7 +31,20 @@ export const Ings: FC<Props> = (props) => {
         fontWeight: 'bold',
     })
 
-    console.log(props.ings);
+    if(props.ings === null){
+        return(
+            <div>
+                <h3>材料</h3>
+                <IngTable>
+                    <tbody>                      
+                        <Ing><Td align='left'>----</Td><Td align='right'>---- </Td></Ing>
+                        <Ing><Td align='left'>----</Td><Td align='right'>---- </Td></Ing> 
+                        <Ing><Td align='left'>----</Td><Td align='right'>---- </Td></Ing>                  
+                    </tbody>
+                </IngTable>
+            </div>
+        )
+    }
     return (
         <div>
             <h3>材料</h3>

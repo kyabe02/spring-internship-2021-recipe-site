@@ -17,13 +17,16 @@ export const Footer: FC<Props> = (props) => {
         backgroundColor: '#ffda71',
     })
 
-    const Logo = styled.div({
+    const Logo = styled.a({
         margin: 'auto',
+        fontSize: 'large',
+        textDecoration: 'none',
+        color: 'black',
     })
 
     return (
         <Footer>
-            <Logo>クックックパッド</Logo>
+            <Logo href="/">クックックパッド</Logo>
         </Footer>
     );
 };

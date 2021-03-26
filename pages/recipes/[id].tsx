@@ -70,7 +70,30 @@ const RecipePage: FC<Props> = (props) => {
     const iconStyle: React.CSSProperties = { padding: 10, fontSize: 50 };
 
     console.log(recipe);
-    if(recipe === null) return <div>loading...</div>;
+    if(recipe === null){
+        return(
+            <div>
+                <Header />
+                <RecipeContainer>
+                <ResipeTitle>------</ResipeTitle>
+                    <RecipeImgContainer> </RecipeImgContainer>
+                    <ResipeDetailBox>
+                        <p>投稿者: ----</p>
+                        <p>投稿日時:----</p>
+                    </ResipeDetailBox>
+                    <ResipeDescription>
+                        ------------
+                    </ResipeDescription>
+
+                    
+                    <Ings ings={null} />
+                    
+                    <Steps steps={null} />
+                </RecipeContainer>
+                <Footer />
+            </div>
+        )
+    }
 
     return(
         <div>
