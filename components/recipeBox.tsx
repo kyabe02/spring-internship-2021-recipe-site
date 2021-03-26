@@ -52,11 +52,13 @@ export const RecipeBox: FC<Props> = (props) => {
     if(props.recipe !== null){
         return (
             <RecipeContainer>
+                <Link href={"./recipes/" + props.recipe.id}>
                 <RecipeImgContainer>
                     {props.recipe.image_url 
-                    ? <RecipeImg src={props.recipe.image_url} alt="" /> 
+                    ? <RecipeImg src={props.recipe.image_url} alt=""  /> 
                     : <FontAwesomeIcon style={iconStyle} icon={faEyeSlash} />}
                 </RecipeImgContainer>
+                </Link>
                 <RecipeDescription>
                 <Link href={"./recipes/" + props.recipe.id}>{props.recipe.title}</Link>
                 <br />

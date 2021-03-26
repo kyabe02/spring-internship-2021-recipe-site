@@ -13,7 +13,6 @@ import React from "react";
 const TopPage: FC = () => {
     const [recipes, setRecipes] = useState<Recipes | null>(null);
     const [page, setPage] = useState<number>(1);
-    const [keyword, setKeyword] = useState<string | null>(null);
 
     const ref = React.createRef<HTMLDivElement>()
 
@@ -45,15 +44,6 @@ const TopPage: FC = () => {
             setRecipes(recipes);
         })(); 
     }, [page]);
-
-    if(keyword !== null) {
-        useEffect(() => {
-            (async() => {
-                const recipes = await getRecipesByWord(keyword, page);
-                setRecipes(recipes);
-            })(); 
-        }, [page]);
-    }
 
     function handlePrev() {
         setPage(page - 1);
