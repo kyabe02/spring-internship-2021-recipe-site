@@ -7,6 +7,7 @@ import Link from "next/link";
 import { css, jsx } from '@emotion/react'
 import styled from '@emotion/styled'
 import { useRouter } from "next/router";
+import { type } from "node:os";
 
 type Props = {
 }
@@ -34,7 +35,7 @@ const SearchPage: FC<Props> = (props) => {
 
     useEffect(() => {
         (async() => {
-            if(router.query.q !== undefined){
+            if(router.query.q !== undefined && typeof router.query.q === 'string'){
                 console.log(keyword);
                 console.log(router.query.q);
                 const recipes = await getRecipesByWord(router.query.q ,page);
