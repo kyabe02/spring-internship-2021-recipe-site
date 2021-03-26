@@ -24,7 +24,7 @@ export const Header: FC = () => {
 
     const Logo = styled.a({
         float: 'left',
-        margin: 'auto 30px',
+        margin: 'auto 0 auto 30px',
         fontSize: 'large',
         textDecoration: 'none',
         color: 'black',
@@ -37,7 +37,7 @@ export const Header: FC = () => {
         display: 'block',
         borderRadius: '20px',
         height: '35px',
-        width: '200px',
+        width: '170px',
         overflow: 'hidden',
         margin: 'auto 20px',
     })
@@ -46,7 +46,7 @@ export const Header: FC = () => {
         border: 'none',
         height: '40px',
         paddingLeft: '1.1em',
-        width: '300px',
+        width: '120px',
         marginTop: '-2px',
         marginLeft: '-2px',
     });
