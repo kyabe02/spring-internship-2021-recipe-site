@@ -43,6 +43,31 @@ const SearchPage: FC<Props> = (props) => {
         paddingTop: '50px',
     });
 
+    const Page = styled.div({
+        textAlign: 'center',
+        margin: '15px 0',
+    })
+
+    const PageButton = styled.button({
+        display         : 'inline-block',
+        borderRadius    : '5%',
+        fontSize        : '20px',
+        textAlign       : 'center',
+        cursor          : 'pointer',
+        padding         : '1vw 1.3vw',
+        background      : '#ff7f00',
+        color           : '#ffffff',
+        lineHeight      : '1em',
+        opacity         : 0.9,
+        transition      : '.3s',
+        boxShadow       : '3px 3px 2px #666666',
+        margin          : '0 1vw', 
+        "&:hover": {
+            boxShadow   : 'none',
+            opacity     : 1,
+          }
+    })
+
     useEffect(() => {
         (async() => {
             if(router.query.q !== undefined && typeof router.query.q === 'string'){
@@ -90,8 +115,10 @@ const SearchPage: FC<Props> = (props) => {
             <RecipeList recipes={recipes.recipes} />
             
         </Body>
-        {recipes.links.prev && <button onClick={handlePrev}>prev</button>}
-        {recipes.links.next && <button onClick={handleNext}>next</button>}
+        <Page>
+            {recipes.links.prev && <PageButton onClick={handlePrev}>前のページ</PageButton>}
+            {recipes.links.next && <PageButton onClick={handleNext}>次のページ</PageButton>}
+        </Page>
         <Footer />
     </div>
   );
