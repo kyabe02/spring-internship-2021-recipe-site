@@ -68,12 +68,15 @@ export const RecipeBox: FC<Props> = (props) => {
     }else{
         return (
             <RecipeContainer>
-                <RecipeImg src={props.recipe.image_url} alt="" />
+                <RecipeImgContainer>
+                    <RecipeImg alt="" />
+                </RecipeImgContainer>
+                
                 <br />
                 <RecipeDescription>
-                <Link href={"./recipes/" + props.recipe.id}>{props.recipe.title}</Link>
+                <Link href='#'>-----</Link>
                 <br />
-                {props.recipe.description}
+                --------------------
                 </RecipeDescription>
     
             </RecipeContainer>

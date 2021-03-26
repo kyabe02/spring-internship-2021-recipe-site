@@ -34,6 +34,7 @@ export const Ings: FC<Props> = (props) => {
     console.log(props.ings);
     return (
         <div>
+            <h3>材料</h3>
             <IngTable>
                 <tbody>
                     {props.ings.map((ing, i) => (

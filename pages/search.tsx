@@ -8,6 +8,8 @@ import { css, jsx } from '@emotion/react'
 import styled from '@emotion/styled'
 import { useRouter } from "next/router";
 import { type } from "node:os";
+import { Footer } from "../components/footer";
+import React from "react";
 
 type Props = {
 }
@@ -16,6 +18,14 @@ const SearchPage: FC<Props> = (props) => {
     const [recipes, setRecipes] = useState<Recipes | null>(null);
     const [page, setPage] = useState<number>(1);
     const [keyword, setKeyword] = useState<string | null>(undefined);
+
+    const ref = React.createRef<HTMLDivElement>()
+    const scrollToBottomOfList = React.useCallback(() => {
+        ref!.current!.scrollIntoView({
+          behavior: 'auto',
+          block: 'end',
+        })
+      }, [ ref ])
 
     const router = useRouter();
 
@@ -46,11 +56,14 @@ const SearchPage: FC<Props> = (props) => {
 
     function handlePrev() {
         setPage(page - 1);
+        scrollToBottomOfList();
     }
 
     function handleNext(){
         setPage(page + 1);
+        scrollToBottomOfList();
     }
+
 
 
 
@@ -60,10 +73,14 @@ const SearchPage: FC<Props> = (props) => {
   return(
     <div>
         <Header />
+        <div ref={ref}></div>
         <Body>
             <RecipeList recipes={recipes.recipes} />
             
         </Body>
+        {recipes.links.prev && <button onClick={handlePrev}>prev</button>}
+        {recipes.links.next && <button onClick={handleNext}>next</button>}
+        <Footer />
     </div>
   );
 };

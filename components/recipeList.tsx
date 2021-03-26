@@ -13,7 +13,21 @@ export const RecipeList: FC<Props> = (props) => {
     const RecipeList = styled.div({
         margin: '0 auto',
         width: '90%',
+        backgroundColor: '#ffda71',
     })
+
+    if(props.recipes === null){
+        return(
+            <RecipeList>
+            <RecipeBox recipe={null} />
+            <RecipeBox recipe={null} />
+            <RecipeBox recipe={null} />
+            <RecipeBox recipe={null} />
+            <RecipeBox recipe={null} />
+        ))
+        </RecipeList>
+        )
+    }
 
     return (
         <RecipeList>

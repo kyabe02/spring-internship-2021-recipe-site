@@ -37,7 +37,7 @@ export type Recipe = {
     related_recipes: number[];
   };
 
-export const RecipeDummy ={
+export const RecipeDummy: Recipe ={
     "id": null,
 "title": "----------",
 "description": "----------------------------------------",

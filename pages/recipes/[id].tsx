@@ -10,6 +10,7 @@ import { Header } from "../../components/header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { css, jsx } from '@emotion/react'
+import { Footer } from "../../components/footer";
 
 type Props = {
 }
@@ -31,8 +32,9 @@ const RecipePage: FC<Props> = (props) => {
     }
     
     const RecipeContainer = styled.div({
-        margin: '10px',
-        paddingTop: '50px',
+        margin: '0 auto',
+        padding: '50px 20px 0',
+        width: '80%',
     })
     const RecipeImgContainer = styled.div({
         textAlign: 'center',
@@ -54,8 +56,16 @@ const RecipePage: FC<Props> = (props) => {
     })
 
     const ResipeDescription = styled.div({
+        padding: '10px',
+    });
 
-    })
+    const ResipeTitle = styled.div({
+        padding: '10px',
+        backgroundColor: '#ffda71',
+        fontSize: 'x-large',
+        fontWeight: 'bold',
+        margin: '20px 0',
+    });
 
     const iconStyle: React.CSSProperties = { padding: 10, fontSize: 50 };
 
@@ -66,7 +76,7 @@ const RecipePage: FC<Props> = (props) => {
         <div>
             <Header />
             <RecipeContainer>
-            <h2>{recipe.title}</h2>
+            <ResipeTitle>{recipe.title}</ResipeTitle>
                 <RecipeImgContainer> 
                     {recipe.image_url 
                 ? <img src={recipe.image_url} alt="" width='100%' /> 
@@ -79,11 +89,12 @@ const RecipePage: FC<Props> = (props) => {
                     {recipe.description}
                 </ResipeDescription>
 
-                <h3>材料</h3>
+                
                 <Ings ings={recipe.ingredients} />
-                <h3>手順</h3>
+                
                 <Steps steps={recipe.steps} />
             </RecipeContainer>
+            <Footer />
         </div>
     );
 };

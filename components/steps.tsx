@@ -19,6 +19,7 @@ export const Steps: FC<Props> = (props) => {
 
     return (
         <div>
+            <h3>手順</h3>
             <Ol>
             {props.steps.map((step, i) => (
                 <Step key={i}>{step}</Step>
