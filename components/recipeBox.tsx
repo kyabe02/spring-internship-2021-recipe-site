@@ -20,6 +20,7 @@ export const RecipeBox: FC<Props> = (props) => {
     const RecipeImgContainer = styled.div({
         width: '95%',
         minHeight: '150px',
+        maxHeight: '300px',
         margin: '0 auto',
         borderRadius: '10px',
         overflow: 'hidden',
@@ -31,11 +32,12 @@ export const RecipeBox: FC<Props> = (props) => {
     })
 
     const RecipeContainer = styled.div({
-        margin: '10px',
+        margin: '0 auto',
         padding: '10px 0',
         borderBottom: 'solid 2px gray',
         width: '90%',
         backgroundColor: '#ffe',
+        maxWidth: '500px',
     })
 
     const RecipeDescription = styled.div({
