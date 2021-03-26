@@ -62,7 +62,7 @@ const TopPage: FC = () => {
         <Header />
         <Body>
             <RecipeList recipes={recipes.recipes} />
-            <div css={hoverStyle}>ホバーで色変更</div>
+
             
         </Body>
         {recipes.links.prev && <button onClick={handlePrev}>prev</button>}

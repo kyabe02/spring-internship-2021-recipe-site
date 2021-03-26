@@ -61,7 +61,6 @@ const SearchPage: FC<Props> = (props) => {
         <Header />
         <Body>
             <RecipeList recipes={recipes.recipes} />
-            <div css={hoverStyle}>ホバーで色変更</div>
             
         </Body>
     </div>
