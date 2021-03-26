@@ -46,7 +46,6 @@ const SearchPage: FC<Props> = (props) => {
     useEffect(() => {
         (async() => {
             if(router.query.q !== undefined && typeof router.query.q === 'string'){
-                console.log(keyword);
                 console.log(router.query.q);
                 const recipes = await getRecipesByWord(router.query.q ,page);
                 setRecipes(recipes);
@@ -57,24 +56,37 @@ const SearchPage: FC<Props> = (props) => {
     function handlePrev() {
         setPage(page - 1);
         scrollToBottomOfList();
+        setRecipes(null);
     }
 
     function handleNext(){
         setPage(page + 1);
         scrollToBottomOfList();
+        setRecipes(null);
     }
 
 
 
 
 
-    if (recipes === null) return <div>loading...</div>;
-    console.log(recipes);
+    if (recipes === null){
+        return(
+            <div>
+            <Header />
+            <div ref={ref}></div>
+            <Body>
+                <RecipeList recipes={null} />            
+            </Body>
+            <Footer />
+            </div>
+        )
+    }
   return(
     <div>
         <Header />
         <div ref={ref}></div>
         <Body>
+            <h2>検索結果: {router.query.q}</h2>
             <RecipeList recipes={recipes.recipes} />
             
         </Body>
