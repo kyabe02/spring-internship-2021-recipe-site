@@ -22,10 +22,12 @@ export const Header: FC = () => {
         transform: 'translate(-8px, -10px)',
     });
 
-    const Logo = styled.div({
+    const Logo = styled.a({
         float: 'left',
         margin: 'auto 30px',
         fontSize: 'large',
+        textDecoration: 'none',
+        color: 'black',
     });
 
     const SearchContainer = styled.form({
@@ -67,7 +69,7 @@ export const Header: FC = () => {
 
     return (
         <Header>
-            <Logo>クックックパッド</Logo>
+            <Logo href='/'>クックックパッド</Logo>
             <SearchContainer method='get' action='/search'>
             <Search placeholder='検索はこちら' name='q'/>
             <Submit type='submit'><FontAwesomeIcon icon={faSearch} /></Submit>
