@@ -13,13 +13,14 @@ export const Header: FC = () => {
     }
 
     const Header = styled.div({
-        backgroundColor: 'lightgray',
+        backgroundColor: '#ffda71',
         height: '50px',
         position: 'fixed',
         width: '100%',
         display: 'flex',
         justifyContent: 'space-between',
         transform: 'translate(-8px, -10px)',
+        borderBottom: 'solid',
     });
 
     const Logo = styled.a({
